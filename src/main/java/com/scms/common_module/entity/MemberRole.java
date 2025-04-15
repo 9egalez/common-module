@@ -1,5 +1,5 @@
 package com.scms.common_module.entity;
 
 public enum MemberRole {
-    admin, editor, guest
+    super_admin, admin, editor, guest
 }

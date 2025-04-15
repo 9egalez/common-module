@@ -16,7 +16,7 @@ import java.util.UUID;
 public class Member {
     @Id
     @Column(name = "id", nullable = false, unique = true, updatable = false)
-    private String id = UUID.randomUUID().toString();
+    private String id;
 
     @Column(name = "member_first_name", nullable = false)
     private String firstName;

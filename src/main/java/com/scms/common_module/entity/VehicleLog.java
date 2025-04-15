@@ -16,7 +16,7 @@ import java.util.UUID;
 public class VehicleLog {
     @Id
     @Column(name = "id", nullable = false, unique = true, updatable = false)
-    private String id = UUID.randomUUID().toString();
+    private String id;
 
     @ManyToOne
     @JoinColumn(name = "barcode_data_id", nullable = false)

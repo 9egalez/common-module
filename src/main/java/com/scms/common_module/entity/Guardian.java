@@ -15,7 +15,7 @@ import java.util.UUID;
 public class Guardian {
     @Id
     @Column(name = "id", nullable = false, unique = true, updatable = false)
-    private String id = UUID.randomUUID().toString();
+    private String id;
 
     @Column(name = "guardian_first_name")
     private String firstName;

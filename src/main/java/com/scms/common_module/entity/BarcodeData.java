@@ -19,7 +19,7 @@ import java.util.UUID;
 public class BarcodeData {
     @Id
     @Column(name = "id", nullable = false, unique = true, updatable = false)
-    private String id = UUID.randomUUID().toString();
+    private String id;
 
     @Column(name = "barcode_content", nullable = false, unique = true)
     private String content;

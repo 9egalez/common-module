@@ -1,5 +1,9 @@
 package com.scms.common_module.entity;
 
 public enum MemberRole {
-    super_admin, admin, editor, guest
+    SUPER_ADMIN, ADMIN, EDITOR, GUEST;
+
+    public String getAuthority() {
+        return name(); // Or "ROLE_" + name()
+    }
 }

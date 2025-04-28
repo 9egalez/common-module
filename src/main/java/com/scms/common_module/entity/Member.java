@@ -24,8 +24,8 @@ public class Member {
     @Column(name = "member_last_name")
     private String lastName;
 
-    @Column(name = "member_user_name", nullable = false)
-    private String userName;
+    @Column(name = "member_username", nullable = false)
+    private String username;
 
     @Column(name = "member_phone", nullable = false)
     private String phone;
@@ -44,7 +44,7 @@ public class Member {
     private String passwordHint;
 
     @ManyToOne
-    @JoinColumn(name = "school_id", nullable = false)
+    @JoinColumn(name = "school_id")
     private School school;
 
     @Column(name = "created_at", nullable = false)

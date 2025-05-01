@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.scms</groupId>
 	<artifactId>common-module</artifactId>
-	<version>0.0.4</version>
+	<version>0.0.5</version>
 	<name>common-module</name>
 	<description>common-module for project SCMS</description>
 	<url/>

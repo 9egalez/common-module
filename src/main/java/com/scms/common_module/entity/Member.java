@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.Instant;
-import java.util.UUID;
 
 @Entity
 @Table(name = "member")
@@ -24,7 +23,7 @@ public class Member {
     @Column(name = "member_last_name")
     private String lastName;
 
-    @Column(name = "member_username", nullable = false)
+    @Column(name = "member_username", nullable = false, unique = true)
     private String username;
 
     @Column(name = "member_phone", nullable = false)
@@ -43,7 +42,7 @@ public class Member {
     @Column(name = "member_password_hint")
     private String passwordHint;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "school_id")
     private School school;
 

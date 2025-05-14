@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "member")
@@ -42,10 +44,6 @@ public class Member {
     @Column(name = "member_password_hint")
     private String passwordHint;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "school_id")
-    private School school;
-
     @Column(name = "created_at", nullable = false)
     private Instant createdAt;
 
@@ -54,4 +52,16 @@ public class Member {
 
     @Column(name = "member_locked", nullable = false)
     private boolean locked;
+
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    private Set<SchoolMember> schoolMembers = new HashSet<>();
+
+    // Helper to check if member is part of a specific school
+    public boolean isInSchool(Long schoolId) {
+        if (this.schoolMembers == null || schoolId == null) {
+            return false;
+        }
+        return this.schoolMembers.stream()
+                .anyMatch(sm -> sm.getSchool() != null && schoolId.equals(sm.getSchool().getId()));
+    }
 }

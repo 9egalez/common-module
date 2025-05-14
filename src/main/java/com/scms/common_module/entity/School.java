@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "school")
@@ -54,4 +56,8 @@ public class School {
 
     @Column(name = "school_active", nullable = false)
     private boolean active;
+
+    @OneToMany(mappedBy = "school", fetch = FetchType.LAZY)
+    private Set<SchoolMember> schoolMembers = new HashSet<>();
+
 }

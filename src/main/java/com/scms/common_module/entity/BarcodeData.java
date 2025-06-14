@@ -21,7 +21,7 @@ public class BarcodeData {
     @Column(name = "id", nullable = false, unique = true, updatable = false)
     private String id;
 
-    @Column(name = "barcode_content", nullable = false, unique = true)
+    @Column(name = "barcode_content", nullable = false, columnDefinition = "TEXT")
     private String content;
 
     @Column(name = "created_date", nullable = false)
